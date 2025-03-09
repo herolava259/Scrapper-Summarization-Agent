@@ -14,4 +14,4 @@ def search_urls_new_with_topic(topic: str, max_results: int = 6) -> List[str]:
         return ['https://apnews.com/politics', 'https://www.politico.com/politics', 'https://www.usatoday.com/news/politics/', 'https://www.cbsnews.com/politics/', 'https://abcnews.go.com/politics', 'https://www.nbcnews.com/politics']
 
 
-print(search_urls_new_with_topic('technology'))
+#print(search_urls_new_with_topic('technology'))
