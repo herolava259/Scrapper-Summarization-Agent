@@ -14,6 +14,7 @@ Tools: scrape_data
 Topics: programming language
 ---
 Input: "I want to see today's sports information."
+Tool: scrape_data
 Topics: sports
 ---
 Input: "I want to see today's news."
