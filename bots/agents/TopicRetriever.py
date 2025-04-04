@@ -1,6 +1,6 @@
 from langchain_core.agents import AgentFinish
 
-from bots.flows.summarization_functions_flow import build_summarization_flow
+from bots.flows.router_functions_flow import build_keyword_extractor_flow
 from typing import List, Dict
 from bots.models.RetrievedText import RetrievedText
 from bots.tools.scrape_data import scrape_data
@@ -10,13 +10,14 @@ from bots.prompts.builder.synthesize_data import format_multiple_data_for_the_to
 class TopicRetriever:
     def __init__(self):
 
-        self.chain = build_summarization_flow()
+        self.chain = build_keyword_extractor_flow()
         self.tool_dict = {'scrape_data': scrape_data, 'search_wikipedia': search_wikipedia}
 
     def __call__(self, message: str):
 
         print(f'message: \n {message}')
         function_call = self.chain.invoke({"input": message})
+        print(message)
         if isinstance(function_call, AgentFinish):
             return [RetrievedText('Unknown', "Can not search key word from your question")]
         if function_call.tool == 'scrape_data':

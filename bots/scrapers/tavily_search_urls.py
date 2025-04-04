@@ -8,6 +8,7 @@ def search_urls_new_with_topic(topic: str, max_results: int = 6) -> List[str]:
         tavily_client = TavilyClient(api_key=api_key)
         prompt = f'What is today\'s {topic} news and updates?'
         response = tavily_client.search(query=prompt, topic="news", max_results=max_results)
+        print(response)
         return [result['url'] for result in response['results']]
     except Exception as ex:
         print(f"retuning previous results due to exception reaching tavily\n.{ex}")

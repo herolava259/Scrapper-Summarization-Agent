@@ -12,7 +12,7 @@ from bots.prompts.KeyReceiverPrompt import key_receiver_prompt
 
 
 
-def build_summarization_flow():
+def build_keyword_extractor_flow():
     tools = [scrape_data, search_wikipedia]
     functions = [convert_to_openai_function(f) for f in tools]
     #print(functions)
